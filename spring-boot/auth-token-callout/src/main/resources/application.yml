@@ -1,0 +1,9 @@
+io:
+  dietschi:
+    examples:
+      sb:
+        authtokencallout:
+          auth:
+            baseUrl:
+            userName:
+            password:

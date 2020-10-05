@@ -1,0 +1,3 @@
+# JAVA Playground project
+
+Contains playground and exploration projects...
