@@ -20,3 +20,17 @@ A small demo, showing how to integrate and use a message schema with Spring Boot
        "creationDate": 1609294830
   }'
   ```
+
+## User Manual
+
+### Behind the scene
+
+* The proper schema is being defined in the Avro format: [schema](src/main/resources/avro/schema)
+* Using the ``avro-maven-plugin``, the related sources are being generated (see [target/generated-sources/avro](target/generated-sources/avro) for more details)
+* Using the ``apicurio-registry-maven-plugin``, the schema is being uploaded to the Apicurio registry
+* Appropriate Spring Boot producer- and consumer-configuration, allow the usage of schema validation, serialization and deserialization: [application.yml](src/main/resources/application.yml)
+
+### Useful URLs
+
+* Apicurio registry: ``http://<minikube ip>:30036/ui/artifacts``
+* Artefacts on Apicurio: ``http://<minikube ip>:30036/api/artifacts``

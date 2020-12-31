@@ -12,7 +12,7 @@
   minikube start \
     --memory=4096 \
     --extra-config=apiserver.service-node-port-range=1-65535 \
-    -p cqrs-dev
+    -p kafka-exploration
   ```
 * Create a new namespace and set as the default (subsequent commands do not need extra namespace specification):
   ```bash
@@ -45,7 +45,7 @@
   ```
 * List the available services with their URLs, e.g. to get the exact host:port required to access Kafka:
   ```bash
-  minikube service list -p cqrs-dev
+  minikube service list -p kafka-exploration
   ```
 
 ### Apicurio
@@ -67,7 +67,7 @@
   ```
 * Check and try the URL:
   ```bash
-  minikube service --url apicurio-registry -p cqrs-dev -n kafka-dev
+  minikube service --url apicurio-registry -p kafka-exploration -n kafka-dev
   ```
 
 ## User Manual
