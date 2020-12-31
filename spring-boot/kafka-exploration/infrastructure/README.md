@@ -4,7 +4,11 @@
 
 ## Get started
 
-### Minishift
+### Direnv
+
+Make sure [direnv](https://direnv.net/) is installed.
+
+### Minikube
 
 * If not already done, install [minishift](https://minikube.sigs.k8s.io/docs/start∏) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * Start a new kubernetes cluster:
@@ -21,6 +25,10 @@
 
   # Verify
   kubectl config view --minify | grep namespace:
+  ```
+* Reload the env in order to set the minikube IP address, being required later to access the Kubernetes cluster and other resources:
+  ```bash
+  direnv reload
   ```
 
 ### Kafka
