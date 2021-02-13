@@ -1,9 +1,9 @@
 spring:
   kafka:
     consumer:
-      bootstrap-servers: 192.168.64.5:16550
+      bootstrap-servers: localhost:9092
     producer:
-      bootstrap-servers: 192.168.64.5:16550
+      bootstrap-servers: localhost:9092
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
