@@ -1,0 +1,3 @@
+user-changed-topic:10:1:cleanup.policy=compact
+address-changed-topic:10:1:cleanup.policy=compact
+order-changed-topic:10:1:cleanup.policy=compact

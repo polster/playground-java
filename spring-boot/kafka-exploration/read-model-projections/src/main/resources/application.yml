@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: projections-v1
+  profiles:
+    group:
+      common: kafka,mongodb
+      local: common,local
+      docker: common,docker
+
+logging:
+  level:
+    root: info
+    io.dietschi.edu.projections: debug

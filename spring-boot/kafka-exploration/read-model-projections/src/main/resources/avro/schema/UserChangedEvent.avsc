@@ -1,0 +1,38 @@
+{
+  "name": "UserChangedEvent",
+  "namespace": "io.dietschi.edu.projections.schema.avro",
+  "type": "record",
+  "doc": "Avro Schema representing a User Changed Event",
+  "fields" : [
+    {
+      "name": "universalId",
+      "type": "string"
+    },
+    {
+      "name" : "eventCreationDate",
+      "type" : "string"
+    },
+    {
+      "name": "userChangedState",
+      "type": {
+        "name": "User",
+        "namespace": "io.dietschi.edu.projections.schema.avro",
+        "type": "record",
+        "fields": [
+          {
+            "name": "firstName",
+            "type": "string"
+          },
+          {
+            "name": "lastName",
+            "type": "string"
+          },
+          {
+            "name": "userName",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}

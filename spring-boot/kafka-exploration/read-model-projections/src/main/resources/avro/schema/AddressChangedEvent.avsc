@@ -1,0 +1,34 @@
+{
+  "name": "AddressChangedEvent",
+  "namespace": "io.dietschi.edu.projections.schema.avro",
+  "type": "record",
+  "doc": "Avro Schema representing an Address Changed Event",
+  "fields" : [
+    {
+      "name": "universalId",
+      "type": "string"
+    },
+    {
+      "name" : "eventCreationDate",
+      "type" : "string"
+    },
+    {
+      "name": "addressChangedState",
+      "type": {
+        "name": "Address",
+        "namespace": "io.dietschi.edu.projections.schema.avro",
+        "type": "record",
+        "fields": [
+          {
+            "name": "street",
+            "type": "string"
+          },
+          {
+            "name": "houseNumber",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}

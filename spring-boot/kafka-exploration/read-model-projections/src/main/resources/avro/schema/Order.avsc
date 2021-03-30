@@ -1,0 +1,60 @@
+{
+  "name": "OrderChangedEvent",
+  "namespace": "io.dietschi.edu.projections.schema.avro",
+  "type": "record",
+  "doc": "Avro Schema representing an Order Changed Event",
+  "fields" : [
+    {
+      "name": "universalId",
+      "type": "string"
+    },
+    {
+      "name" : "eventCreationDate",
+      "type" : "string"
+    },
+    {
+      "name": "orderChangedState",
+      "type": {
+        "name": "Order",
+        "namespace": "io.dietschi.edu.projections.schema.avro",
+        "type": "record",
+        "fields": [
+          {
+            "name": "orderId",
+            "type": "string"
+          },
+          {
+            "name": "orderCreatedDate",
+            "type": "string"
+          },
+          {
+            "name": "articles",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "Article",
+                "namespace": "io.dietschi.edu.projections.schema.avro",
+                "type": "record",
+                "doc": "Avro Schema representing of an article",
+                "fields": [
+                  {
+                    "name": "articleId",
+                    "type": "string"
+                  },
+                  {
+                    "name": "quantity",
+                    "type": "int"
+                  },
+                  {
+                    "name": "name",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

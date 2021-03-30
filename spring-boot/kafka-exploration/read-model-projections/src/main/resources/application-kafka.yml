@@ -1,0 +1,36 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        streams:
+          binder:
+            configuration:
+              num.stream.threads: 2
+              apicurio.registry:
+                url: http://localhost:8081/api
+                artifact-id: io.apicurio.registry.utils.serde.strategy.RecordIdStrategy
+                global-id: io.apicurio.registry.utils.serde.strategy.GetOrCreateIdStrategy
+                use-specific-avro-reader: true
+              default:
+                key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value.serde: io.apicurio.registry.utils.serde.AvroSerde
+          bindings:
+            processUserEvents-in-0:
+              consumer.applicationId: projections-user
+            processUserEvents-in-1:
+              consumer.applicationId: projections-address
+            processOrderEvents-in-0:
+              consumer.applicationId: projections-order
+            processOrderEvents-in-1:
+              consumer.applicationId: projections-address
+      bindings:
+        processUserEvents-in-0:
+          destination: user-changed-topic
+        processUserEvents-in-1:
+          destination: address-changed-topic
+        processOrderEvents-in-0:
+          destination: order-changed-topic
+        processOrderEvents-in-1:
+          destination: address-changed-topic
+    function:
+      definition: processUserEvents,processOrderEvents

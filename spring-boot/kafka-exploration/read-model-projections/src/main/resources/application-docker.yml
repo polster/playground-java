@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        streams:
+          binder:
+            configuration:
+              apicurio:
+                registry:
+                  url: http://apicurio:8081/api
+        binder:
+          brokers: kafka:29092
+
+  data:
+    mongodb:
+      host: mongodb

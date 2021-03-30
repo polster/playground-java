@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      port: 27017
+      database: read-model-projections
+      username: projections
+      password: 45aVg1
