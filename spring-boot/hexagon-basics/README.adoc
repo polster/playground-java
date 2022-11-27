@@ -1,0 +1,5 @@
+= Hexagonal Architecture and DDD - Basics
+
+This project aims providing some good practices when it comes to structuring and layering building blocks, the hexagonal way.
+
+In addition, DDD and feature oriented structuring, are also influencers to this sample.
