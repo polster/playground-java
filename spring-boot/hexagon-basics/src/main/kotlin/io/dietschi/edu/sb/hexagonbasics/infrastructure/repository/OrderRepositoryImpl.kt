@@ -13,6 +13,12 @@ import java.util.*
 class OrderRepositoryImpl(
     private val orderRepositoryMongo: OrderRepositoryMongo
 ): OrderRepository {
+    override fun findAll(): List<Order> {
+        return orderRepositoryMongo
+            .findAll()
+            .map { it.order }
+            .toList()
+    }
 
     override fun findById(id: UUID): Order? {
         return orderRepositoryMongo

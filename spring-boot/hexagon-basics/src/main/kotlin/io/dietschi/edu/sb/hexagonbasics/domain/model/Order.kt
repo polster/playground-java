@@ -6,20 +6,23 @@ class Order(
     val id: UUID,
     product: Product
 ) {
-    private val status = OrderStatus.CREATED
+    private var status = OrderStatus.CREATED
     private val items = mutableListOf(
         OrderItem(product)
     )
     private var totalPrice = product.price
 
     fun complete() {
-        validateState()
+        validateStatus()
+        status = OrderStatus.COMPLETED
     }
 
     fun getOrderItems() = Collections.unmodifiableList(items)
 
+    fun getStatus() = status
+
     fun addOrder(product: Product) {
-        validateState()
+        validateStatus()
         items.add(
             OrderItem(product)
         )
@@ -27,13 +30,13 @@ class Order(
     }
 
     fun removeOrder(id: UUID) {
-        validateState()
+        validateStatus()
         val item = getItem(id)
         items.remove(item)
         totalPrice -= item.price
     }
 
-    private fun validateState() {
+    private fun validateStatus() {
         if (OrderStatus.COMPLETED == status) {
             throw IllegalStateException("Order with id $id already completed!")
         }

@@ -43,6 +43,10 @@ class OrderServiceImpl(
         return getOrder(id)
     }
 
+    override fun orders(): List<Order> {
+        return orderRepository.findAll()
+    }
+
     private fun getOrder(id: UUID): Order {
         orderRepository
             .findById(id)

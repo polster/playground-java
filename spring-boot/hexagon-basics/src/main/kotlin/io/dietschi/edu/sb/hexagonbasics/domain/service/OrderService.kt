@@ -11,4 +11,5 @@ interface OrderService {
     fun removeProduct(id: UUID, productId: UUID)
     fun completeOrder(id: UUID)
     fun orderById(id: UUID): Order
+    fun orders(): List<Order>
 }

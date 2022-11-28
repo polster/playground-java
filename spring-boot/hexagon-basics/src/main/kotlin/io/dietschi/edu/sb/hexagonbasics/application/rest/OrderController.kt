@@ -18,4 +18,15 @@ class OrderController(
     fun orderById(@PathVariable id: UUID): Order {
         return orderService.orderById(id)
     }
+
+    @GetMapping("/")
+    fun orders(): OrdersResponse {
+        val orders = orderService
+            .orders()
+            .map { OrdersResponse.Order(
+                it.id,
+                it.getStatus())
+            }
+        return OrdersResponse(orders)
+    }
 }
