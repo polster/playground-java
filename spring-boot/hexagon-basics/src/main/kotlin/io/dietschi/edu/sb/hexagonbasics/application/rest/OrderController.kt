@@ -19,7 +19,7 @@ class OrderController(
         return orderService.orderById(id)
     }
 
-    @GetMapping("/")
+    @GetMapping
     fun orders(): OrdersResponse {
         val orders = orderService
             .orders()
