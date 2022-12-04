@@ -14,8 +14,34 @@ provider "aws" {
 
 resource "aws_sns_topic" "hex-order-events" {
   name = "hex-order-events"
+  policy    =   <<POLICY
+  {
+      "Version":"2012-10-17",
+      "Statement":[
+          {
+              "Effect" : "Allow",
+              "Principal":"*",
+              "Action":"sns:*",
+              "Resource":"arn:aws:sqs:*:*:hex-order-events"
+          }
+      ]
+  }
+  POLICY
 }
 
 resource "aws_sqs_queue" "hex-order-commands" {
   name = "hex-order-commands"
+  policy    =   <<POLICY
+  {
+      "Version":"2012-10-17",
+      "Statement":[
+          {
+              "Effect" : "Allow",
+              "Principal":"*",
+              "Action":"sqs:*",
+              "Resource":"arn:aws:sqs:*:*:hex-order-commands"
+          }
+      ]
+  }
+  POLICY
 }

@@ -1,4 +1,4 @@
-package io.dietschi.edu.sb.hexagonbasics.application.config
+package io.dietschi.edu.sb.hexagonbasics.application.rest
 
 import io.swagger.v3.oas.models.OpenAPI
 import io.swagger.v3.oas.models.info.Info
