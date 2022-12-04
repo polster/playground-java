@@ -13,10 +13,19 @@ In addition, DDD and feature oriented structuring, are also influencers to this 
 
 * Maven 3.8
 * Java 17
+* direnv
+* make
+* terraform
 
 == Get started
 
 * Git clone this repo
+* Setup the local infra:
+[source,bash]
+----
+make docker-infra-up
+make docker-infra-provision
+----
 * Build and start application:
 [source,bash]
 ----

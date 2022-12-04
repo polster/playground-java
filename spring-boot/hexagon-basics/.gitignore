@@ -4,6 +4,13 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Terraform ###
+**/.terraform
+**/terraform.tfstate
+**/*.tfstate
+**/*.tfstate.backup
+**/*.lock.hcl
+
 ### STS ###
 .apt_generated
 .classpath
@@ -18,16 +25,6 @@ target/
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
