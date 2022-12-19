@@ -2,7 +2,7 @@ package io.dietschi.edu.sb.hexagonbasics.domain.service
 
 import io.dietschi.edu.sb.hexagonbasics.domain.model.Order
 import io.dietschi.edu.sb.hexagonbasics.domain.model.Product
-import io.dietschi.edu.sb.hexagonbasics.domain.ports.OrderRepository
+import io.dietschi.edu.sb.hexagonbasics.domain.repository.OrderRepository
 import org.springframework.stereotype.Service
 import java.util.*
 import kotlin.IllegalStateException

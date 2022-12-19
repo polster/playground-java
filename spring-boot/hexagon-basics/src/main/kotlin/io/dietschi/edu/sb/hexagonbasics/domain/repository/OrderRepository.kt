@@ -1,4 +1,4 @@
-package io.dietschi.edu.sb.hexagonbasics.domain.ports
+package io.dietschi.edu.sb.hexagonbasics.domain.repository
 
 import io.dietschi.edu.sb.hexagonbasics.domain.model.Order
 import java.util.*
