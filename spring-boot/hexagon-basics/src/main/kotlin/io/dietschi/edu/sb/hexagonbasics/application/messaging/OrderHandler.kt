@@ -15,8 +15,8 @@ class OrderHandler(
         "hex-order-commands",
         deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS
     )
-    fun newOrder(message: String) {
-        logger.info("Message received: $message")
+    fun newOrder(message: NewOrderCommand) {
+        logger.info("RAW Message received: $message")
     }
 
     companion object {
