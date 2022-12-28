@@ -35,3 +35,4 @@ mvn spring-boot:run
 * Check some resources:
 ** link:http://localhost:8745/actuator/health[Health]
 ** link:http://localhost:8745/swagger-ui/index.html[Swagger]
+** link:http://localhost:8082[Mongo Express]

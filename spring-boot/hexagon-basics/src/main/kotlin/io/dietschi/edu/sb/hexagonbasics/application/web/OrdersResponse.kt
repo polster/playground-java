@@ -1,6 +1,6 @@
-package io.dietschi.edu.sb.hexagonbasics.application.rest
+package io.dietschi.edu.sb.hexagonbasics.application.web
 
-import io.dietschi.edu.sb.hexagonbasics.domain.model.OrderStatus
+import io.dietschi.edu.sb.hexagonbasics.domain.order.model.OrderStatus
 import java.util.UUID
 
 data class OrdersResponse(

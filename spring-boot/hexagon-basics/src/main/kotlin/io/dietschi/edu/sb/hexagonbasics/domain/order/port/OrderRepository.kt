@@ -1,6 +1,6 @@
-package io.dietschi.edu.sb.hexagonbasics.domain.repository
+package io.dietschi.edu.sb.hexagonbasics.domain.order.port
 
-import io.dietschi.edu.sb.hexagonbasics.domain.model.Order
+import io.dietschi.edu.sb.hexagonbasics.domain.order.model.Order
 import java.util.*
 
 interface OrderRepository {

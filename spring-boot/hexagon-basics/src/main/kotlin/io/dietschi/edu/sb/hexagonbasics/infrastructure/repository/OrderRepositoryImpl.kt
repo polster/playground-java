@@ -1,7 +1,7 @@
 package io.dietschi.edu.sb.hexagonbasics.infrastructure.repository
 
-import io.dietschi.edu.sb.hexagonbasics.domain.repository.OrderRepository
-import io.dietschi.edu.sb.hexagonbasics.domain.model.Order
+import io.dietschi.edu.sb.hexagonbasics.domain.order.port.OrderRepository
+import io.dietschi.edu.sb.hexagonbasics.domain.order.model.Order
 import io.dietschi.edu.sb.hexagonbasics.infrastructure.repository.mongo.OrderDocument
 import io.dietschi.edu.sb.hexagonbasics.infrastructure.repository.mongo.OrderRepositoryMongo
 import io.dietschi.edu.sb.hexagonbasics.unwrap
@@ -30,8 +30,8 @@ class OrderRepositoryImpl(
     override fun save(order: Order) {
         orderRepositoryMongo.save(
             OrderDocument(
-                order,
-                Instant.now()
+                order.id.toString(),
+                order
             )
         )
     }

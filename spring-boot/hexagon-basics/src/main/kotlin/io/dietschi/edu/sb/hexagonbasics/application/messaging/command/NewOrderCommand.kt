@@ -1,9 +1,8 @@
-package io.dietschi.edu.sb.hexagonbasics.application.messaging
+package io.dietschi.edu.sb.hexagonbasics.application.messaging.command
 
 import java.util.UUID
 
 data class NewOrderCommand(
-    val id: UUID,
     val product: Product,
     val version: String = "v1"
 ) {

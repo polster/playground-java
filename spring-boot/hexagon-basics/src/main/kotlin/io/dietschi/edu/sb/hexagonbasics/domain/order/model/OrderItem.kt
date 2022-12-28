@@ -1,4 +1,4 @@
-package io.dietschi.edu.sb.hexagonbasics.domain.model
+package io.dietschi.edu.sb.hexagonbasics.domain.order.model
 
 data class OrderItem(
     val product: Product

@@ -1,9 +1,9 @@
-package io.dietschi.edu.sb.hexagonbasics.application.messaging
+package io.dietschi.edu.sb.hexagonbasics.application.config
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding
 
-@ConfigurationProperties(prefix = "messaging.client")
+@ConfigurationProperties(prefix = "messaging.aws.client")
 @ConstructorBinding
 data class MessagingClientProperties(
     val endpointUrlSqs: String,

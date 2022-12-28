@@ -14,23 +14,19 @@ provider "aws" {
 
 resource "aws_sns_topic" "hex-order-events" {
   name = "hex-order-events"
-  policy    =   <<POLICY
-  {
-      "Version":"2012-10-17",
-      "Statement":[
-          {
-              "Effect" : "Allow",
-              "Principal":"*",
-              "Action":"sns:*",
-              "Resource":"arn:aws:sqs:*:*:hex-order-events"
-          }
-      ]
-  }
-  POLICY
 }
 
 resource "aws_sqs_queue" "hex-order-commands" {
   name = "hex-order-commands"
+  redrive_policy = "{\"deadLetterTargetArn\":\"${aws_sqs_queue.hex-order-commands-dlq.arn}\",\"maxReceiveCount\":3}"
+}
+
+resource "aws_sqs_queue" "hex-order-commands-dlq" {
+  name = "hex-order-commands-dlq"
+}
+
+resource "aws_sqs_queue_policy" "hex-order-commands" {
+  queue_url = aws_sqs_queue.hex-order-commands.id
   policy    =   <<POLICY
   {
       "Version":"2012-10-17",
@@ -39,7 +35,24 @@ resource "aws_sqs_queue" "hex-order-commands" {
               "Effect" : "Allow",
               "Principal":"*",
               "Action":"sqs:*",
-              "Resource":"arn:aws:sqs:*:*:hex-order-commands"
+              "Resource":"${aws_sqs_queue.hex-order-commands.arn}"
+          }
+      ]
+  }
+  POLICY
+}
+
+resource "aws_sns_topic_policy" "hex-order-events" {
+  arn    = aws_sns_topic.hex-order-events.arn
+  policy    =   <<POLICY
+  {
+      "Version":"2012-10-17",
+      "Statement":[
+          {
+              "Effect" : "Allow",
+              "Principal":"*",
+              "Action":"sns:*",
+              "Resource":"${aws_sns_topic.hex-order-events.arn}"
           }
       ]
   }
