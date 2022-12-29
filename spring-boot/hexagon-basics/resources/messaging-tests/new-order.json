@@ -1,5 +1,6 @@
 {
   "id": "cefd802b-a34c-4b54-a67c-9800c59bd0c9",
+  "messageType": "new-order",
   "product": {
     "id": "b6f386bb-2bec-4fac-9bac-17f6c4dedec0",
     "name": "Flux Capacitor",

@@ -8,11 +8,12 @@
 
 SCRIPT_PATH="$(dirname "$0")"
 
-SQS_ENDPOINT="http://localhost:4566"
-SQS_IN_QUEUE="http://localhost:4566/000000000000/hex-order-commands"
+SNS_ENDPOINT="http://localhost:4566"
+SNS_IN_TOPIC="arn:aws:sns:eu-central-1:000000000000:hex-order-commands"
 MESSAGE_PAYLOAD=$(cat $SCRIPT_PATH/new-order.json)
 
-aws --endpoint-url=${SQS_ENDPOINT} \
-    sqs send-message \
-    --queue-url ${SQS_IN_QUEUE} \
-    --message-body "${MESSAGE_PAYLOAD}"
+aws --endpoint-url=${SNS_ENDPOINT} \
+    sns publish \
+    --topic-arn ${SNS_IN_TOPIC} \
+    --message-attributes '{"messageType":{"DataType":"String","StringValue":"new-order"}}' \
+    --message "${MESSAGE_PAYLOAD}"

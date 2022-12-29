@@ -1,8 +1,11 @@
 package io.dietschi.edu.sb.hexagonbasics.application.messaging.command
 
-data class NewOrderCommand(
+import java.util.UUID
+
+data class AddProductCommand(
+    val orderId: UUID,
     val product: Product
 ) {
-    val messageType: String = "new-order"
+    val messageType: String = "add-product"
     val version: String = "v1"
 }
