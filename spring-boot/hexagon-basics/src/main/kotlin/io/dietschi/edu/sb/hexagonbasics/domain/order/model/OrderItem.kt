@@ -1,8 +1,9 @@
 package io.dietschi.edu.sb.hexagonbasics.domain.order.model
 
+import java.util.UUID
+
 data class OrderItem(
-    val product: Product
-) {
-    val productId = product.id
-    val price = product.price
-}
+    val productId: UUID,
+    val name: String,
+    val price: Double
+)

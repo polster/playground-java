@@ -1,0 +1,9 @@
+{
+  "orderId": "ORDER_ID",
+  "messageType": "add-product",
+  "product": {
+    "id": "6f56b679-4fb0-470d-bb37-3f014a5328ba",
+    "name": "Mr. Fusion",
+    "price": 23457
+  }
+}

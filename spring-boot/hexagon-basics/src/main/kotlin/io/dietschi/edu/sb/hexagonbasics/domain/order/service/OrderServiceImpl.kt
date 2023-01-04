@@ -52,7 +52,7 @@ class OrderServiceImpl(
 
     private fun getOrder(id: UUID): Order {
         orderRepository
-            .findById(id)
+            .findByOrderId(id)
             ?.let {
                 return it
             } ?: throw IllegalStateException("Order with id $id not found!")

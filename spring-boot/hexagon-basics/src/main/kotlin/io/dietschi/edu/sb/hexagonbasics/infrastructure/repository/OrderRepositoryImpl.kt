@@ -6,7 +6,6 @@ import io.dietschi.edu.sb.hexagonbasics.infrastructure.repository.mongo.OrderDoc
 import io.dietschi.edu.sb.hexagonbasics.infrastructure.repository.mongo.OrderRepositoryMongo
 import io.dietschi.edu.sb.hexagonbasics.unwrap
 import org.springframework.stereotype.Component
-import java.time.Instant
 import java.util.*
 
 @Component
@@ -20,9 +19,9 @@ class OrderRepositoryImpl(
             .toList()
     }
 
-    override fun findById(id: UUID): Order? {
+    override fun findByOrderId(id: UUID): Order? {
         return orderRepositoryMongo
-            .findById(id.toString())
+            .findByOrderId(id.toString())
             .unwrap()
             ?.let { return it.order }
     }
